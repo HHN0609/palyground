@@ -1,7 +1,18 @@
+import { Link } from "react-router-dom"
+import { router } from "./router"
 function App() {
   return (
     <>
-      <div>Playground</div>
+      <h1>Playground</h1>
+      {
+        router.routes.map(({ path = '/' }) => {
+          return (
+            <div key={path}>
+              <Link to={path}>{ path }</Link>
+            </div>
+          )
+        })
+      }
     </>
   )
 }
